@@ -1,0 +1,27 @@
+Sub Loop_Inside_Folder()
+
+    Dim FileDir As String
+    Dim FileToList As String
+    Dim Openbook As Workbook
+    
+    With Application.FileDialog(msoFileDialogFolderPicker)
+        .Title = "Please select a folder"
+        .ButtonName = "Pick Folder"
+        If .Show = 0 Then
+            MsgBox "Nothing was selected"
+            Exit Sub
+        Else
+            'folder path
+            FileDir = .SelectedItems(1) & "\"
+            
+        End If
+    End With
+    'get first macthing file name
+    FileToList = Dir(FileDir & "*xls*")
+    Do Until FileToList = ""
+        DoEvents 'allows windows to catchup
+        Set Openbook = Workbooks.Open(FileDir & FileToList)
+        Openbook.Sheets(1).Copy before:=ThisWorkbook.Sheets(1)
+        
+        FileToList = Dir
+    Loop
