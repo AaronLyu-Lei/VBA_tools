@@ -25,3 +25,4 @@ Sub Loop_Inside_Folder()
         
         FileToList = Dir
     Loop
+End sub
