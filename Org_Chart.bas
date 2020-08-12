@@ -1,6 +1,5 @@
 Attribute VB_Name = "Org_Chart"
 
-
 Sub Organization_Chart()
     Dim saLayOut As SmartArtLayout
     Dim sa As SmartArt
@@ -71,7 +70,7 @@ Sub Organization_Chart()
      Exit Sub
 
 error:
-     MsgBox "至少应当有5家单位"
+    MsgBox "You must have at least 5 companies."
      Exit Sub
     
 End Sub
